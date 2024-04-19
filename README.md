@@ -18,14 +18,21 @@ UniProt provides a dataset that can be used to map proteome IDs to their associa
 
 This version of slimNT was designed to be as diverse and robust as possible, and the highest cut-offs were selected (95% cut-off for viral RPGs including polyproteomes, and 75% cutt-off for all others.)
 
-### 1) 
+### 1) getIds
 The process ##getIds downloads a mapping file from UniProt and parses out proteome IDs and genome assembly IDs for all selected proteomes. The viral and non-viral representative proteome list files are then downloaded from PIR and the selected representative proteomes are extracted. getIds then matches proteome and assembly IDS and outputs a mapping file mapped.db. 
 
 reads through .txt file and extracts genome assembly ids from the reference file ###reference file name###. zipped fasta files are then downloaded from NCBI for all assembly IDs.
 
-### 2)
+### 2) getGenomes
 QC steps are taken to identify empty fasta files and saved to a secondary .txt file. ###python script### is then used to read the list of empty files and print a new file with alternate refseq/genbank ids. This new list is then passed back into ##script## and fastas are downloaded again. An additional check is conducted to identify any remaining empty files, and they are notated.
 
-### 3) Optional
+
+### 3) getAlternateIds
+
+### 4) getAlternateGenome
+
+### 5) concatZip
+
+###  Optional
 Eukaryotic genome filesize can be prohibitve to a genomic databse build. One strategy to help this is to build the database only using coding sequences for the majority of eukaryotic assemblies. Full genomes for common model organisms as well as specified organisms of interest should be used, but CDS files can be used for all others. This will decrease the overall database size, but the inclusion of coding sequences will ensure that organims are still identified. The steps taken are similar to the steps outlined above, but additional file parsing steps must be taked to ammend the fasta headers for cds files. After parsing is completed by ###script###, the modified fasta files are moved to the same directory as other files, and all fasta files are concatenated and zipped. This new zipped file is slimNT.
 
