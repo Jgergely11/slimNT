@@ -14,12 +14,14 @@ A list of viral proteome IDs are generated similarly. Cut-off values of [(95%)](
 
 There is a secondary group of viral RPGs that include polyproteoms that can be found [here](https://proteininformationresource.org/download/rps/rpg_virus_all/current/).
 
-UniProt provides a dataset that can be used to map proteome IDs to their associated Genbank or RefSeq IDS [mapping dataset](https://www.uniprot.org/proteomes?query=*) . 
+UniProt provides a dataset that can be used to map proteome IDs to their associated Genbank or RefSeq IDS [(mapping dataset)](https://www.uniprot.org/proteomes?query=*) . 
 
 This version of slimNT was designed to be as diverse and robust as possible, and the highest cut-offs were selected (95% cut-off for viral RPGs including polyproteomes, and 75% cutt-off for all others.)
 
 ### 1) 
-The process getIds downloads a .txt mapping file from UniProt and parses out proteome IDs for all selected proteomes. ###script name### then reads through .txt file and extracts genome assembly ids from the reference file ###reference file name###. zipped fasta files are then downloaded from NCBI for all assembly IDs.
+The process ## getIds downloads a mapping file from UniProt and parses out proteome IDs and genome assembly IDs for all selected proteomes. The viral and non-viral representative proteome list files are then downloaded from PIR and the selected representative proteomes are extracted. getIds then matches proteome and assembly IDS and outputs a mapping file mapped.db. 
+
+reads through .txt file and extracts genome assembly ids from the reference file ###reference file name###. zipped fasta files are then downloaded from NCBI for all assembly IDs.
 
 ### 2)
 QC steps are taken to identify empty fasta files and saved to a secondary .txt file. ###python script### is then used to read the list of empty files and print a new file with alternate refseq/genbank ids. This new list is then passed back into ##script## and fastas are downloaded again. An additional check is conducted to identify any remaining empty files, and they are notated.
