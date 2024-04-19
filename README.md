@@ -4,7 +4,7 @@ slimNT has been developed to provide a curated, streamlined version of the NT da
 
 The slimNT database is derived from Representative Proteome (RPs) and Reference Proteome Groups (RPGs) provided by [Protein Information Resource (PIR)](https://proteininformationresource.org/rps/). Reference proteomes and viral reference proteomes can be selected based on a desired cutoff thresholds. Selecting a higher cutoff value will create a larger, more robust database that will lend to increased accuracy at the expense of computation time. Conversely, selecting a lower threshold will result in a database that can be queried more quickly, but may only identify more distantly related sequences.
 
-To ensure a portable, reproducable workflow, a nextflow pipeline was developed to aggregate and build the slimNT database. The nextflow pipeline file slimNT.nf encompasses all the steps outlined below with single command. Detailed instructions to install nextflow can be found here https://www.nextflow.io/docs/latest/index.html. 
+To ensure a portable, reproducable workflow, a nextflow pipeline was developed to aggregate and build the slimNT database. Detailed instructions to install nextflow can be found here https://www.nextflow.io/docs/latest/index.html. 
 
 ## Data Collection
 
@@ -14,10 +14,12 @@ A list of viral proteome IDs are generated similarly. Cut-off values of [(95%)](
 
 There is a secondary group of viral RPGs that include polyproteoms that can be found [here](https://proteininformationresource.org/download/rps/rpg_virus_all/current/).
 
+UniProt provides a dataset that can be used to map proteome IDs to their associated Genbank or RefSeq IDS [mapping dataset](https://www.uniprot.org/proteomes?query=*) . 
+
 This version of slimNT was designed to be as diverse and robust as possible, and the highest cut-offs were selected (95% cut-off for viral RPGs including polyproteomes, and 75% cutt-off for all others.)
 
 ### 1) 
-###script name### downloads a .txt file and parses out proteome IDs for all selected proteomes. ###script name### then reads through .txt file and extracts genome assembly ids from the reference file ###reference file name###. zipped fasta files are then downloaded from NCBI for all assembly IDs.
+The process getIds downloads a .txt mapping file from UniProt and parses out proteome IDs for all selected proteomes. ###script name### then reads through .txt file and extracts genome assembly ids from the reference file ###reference file name###. zipped fasta files are then downloaded from NCBI for all assembly IDs.
 
 ### 2)
 QC steps are taken to identify empty fasta files and saved to a secondary .txt file. ###python script### is then used to read the list of empty files and print a new file with alternate refseq/genbank ids. This new list is then passed back into ##script## and fastas are downloaded again. An additional check is conducted to identify any remaining empty files, and they are notated.
