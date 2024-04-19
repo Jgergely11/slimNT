@@ -19,7 +19,7 @@ UniProt provides a dataset that can be used to map proteome IDs to their associa
 This version of slimNT was designed to be as diverse and robust as possible, and the highest cut-offs were selected (95% cut-off for viral RPGs including polyproteomes, and 75% cutt-off for all others.)
 
 ### 1) 
-The process ## getIds downloads a mapping file from UniProt and parses out proteome IDs and genome assembly IDs for all selected proteomes. The viral and non-viral representative proteome list files are then downloaded from PIR and the selected representative proteomes are extracted. getIds then matches proteome and assembly IDS and outputs a mapping file mapped.db. 
+The process ##getIds downloads a mapping file from UniProt and parses out proteome IDs and genome assembly IDs for all selected proteomes. The viral and non-viral representative proteome list files are then downloaded from PIR and the selected representative proteomes are extracted. getIds then matches proteome and assembly IDS and outputs a mapping file mapped.db. 
 
 reads through .txt file and extracts genome assembly ids from the reference file ###reference file name###. zipped fasta files are then downloaded from NCBI for all assembly IDs.
 
