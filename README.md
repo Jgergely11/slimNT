@@ -21,7 +21,7 @@ This version of slimNT was designed to be as diverse and robust as possible, and
 nextflow Pipeline
 ---
 
-[slimNT pipeline.pdf](https://github.com/Jgergely11/slimNT/files/15044891/slimNT.pipeline.pdf)
+![Alt text](https://github.com/Jgergely11/slimNT/files/15044891/slimNT.pipeline.pdf)
 
 ### 1) getIds
 The process **getIds** downloads a mapping file from UniProt and parses out proteome ids and genome assembly ids for all selected proteomes. The viral and non-viral representative proteome list files are then downloaded from PIR and the selected representative proteomes are extracted. **getIds** then matches proteome and assembly ids and outputs a mapping file mapped.db. 
